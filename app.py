@@ -1,9 +1,13 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # Initialize the Flask app and SocketIO
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 socketio = SocketIO(app)
 
 # Route for the chat page
