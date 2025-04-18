@@ -7,7 +7,7 @@ load_dotenv()
 
 # Initialize the Flask app and SocketIO
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default_secret_key')
 socketio = SocketIO(app)
 
 # Route for the chat page
